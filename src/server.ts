@@ -1,8 +1,8 @@
-import express , { Express } from 'express';
-import bodyParser from 'body-parser';
-import { loggerMiddleware } from './middleware/logger';
-import router from './routes/user';
-import { notFoundHandler } from './middleware/error';
+import express, { Express } from "express";
+import bodyParser from "body-parser";
+import { loggerMiddleware } from "./middleware/logger";
+import router from "./routes/user";
+import { notFoundHandler } from "./middleware/error";
 
 const app: Express = express();
 const PORT = process.env.PORT || 4000;
@@ -11,11 +11,11 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 app.use(bodyParser.json());
 
-app.use(loggerMiddleware)
-app.use("/v1/users", router)
+app.use(loggerMiddleware);
+app.use("/v1/users", router);
 
-app.use(notFoundHandler)
+app.use(notFoundHandler);
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-}); 
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
